@@ -2,6 +2,7 @@ package web_blaster
 
 import (
 	"net/http"
+	"os"
 )
 
 // Serve 核心接口，定义服务的核心方法
@@ -154,3 +155,8 @@ func DefaultHTTPS(certFile string, keyFile string) *HTTPSServe {
 }
 
 type HandlerFunc func(*Context)
+
+// Shutdown 方法
+func (h *HTTPServe) Shutdown() {
+	os.Exit(100)
+}
